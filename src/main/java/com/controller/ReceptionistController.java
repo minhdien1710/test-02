@@ -34,7 +34,7 @@ public class    ReceptionistController {
         return modelAndView;
     }
 
-    @GetMapping(value = "/create")
+    @GetMapping("/create")
     public ModelAndView showCreateForm() {
         ModelAndView modelAndView = new ModelAndView("/receptionist/create");
         modelAndView.addObject("receptionistForm", new ReceptionistForm());
