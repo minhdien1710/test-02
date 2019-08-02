@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Delete Receptionist</title>
+</head>
+<body>
+<p>
+    <a href="/receptionist/list">Back to List</a>
+</p>
+<h2 style="color: darkblue">Delete Receptionist</h2>
+<h3>Are you sure?</h3>
+<form th:action="@{/delete-receptionist}" th:object="${receptionist}" method="post" enctype="multipart/form-data">
+    <input th:type="hidden" th:field="*{id}">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td th:text="*{name}"></td>
+        </tr>
+        <tr>
+            <td>Age:</td>
+            <td th:text="*{age}"></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td th:text="*{address}"></td>
+        </tr>
+        <tr>
+            <td>Hobby:</td>
+            <td th:text="*{hobby}"></td>
+        </tr>
+        <tr>
+            <td>Avatar</td>
+            <td><img width="150px" height="200px" th:src="@{'/image/' + ${receptionist.avatar}}"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Delete receptionist"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>

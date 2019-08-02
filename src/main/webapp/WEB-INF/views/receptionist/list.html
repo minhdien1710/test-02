@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reception List</title>
+</head>
+<body>
+<p>
+    <a href="/receptionist/create">Create New Receptionist</a>
+</p>
+<h1>Reception List</h1>
+<form>
+    Search by name:
+    <input type="text" name="search">
+    <input type="submit" value="Search">
+</form>
+<br>
+<table border="1">
+    <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Edit</td>
+        <td>Delete</td>
+        <td>View</td>
+    </tr>
+    <th:block th:each="receptionist:${receptionist}">
+        <tr>
+            <td th:text="${receptionist.id}"></td>
+            <td th:text="${receptionist.name}"></td>
+            <td><a th:href="@{/receptionist/update/__${receptionist.id}__}">edit</a></td>
+            <td><a th:href="@{/receptionist/delete/__${receptionist.id}__}">delete</a></td>
+            <td><a th:href="@{/receptionist/detail/__${receptionist.id}__}">view</a></td>
+        </tr>
+    </th:block>
+</table>
+</body>
+</html>
