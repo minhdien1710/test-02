@@ -6,23 +6,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ReceptionistRepository implements GeneralRepository<Receptionist> {
-    ArrayList<Receptionist> receptionistList = new ArrayList<>();
+    private static ArrayList<Receptionist> receptionistsList;
+
+    static {
+        receptionistsList = new ArrayList<>();
+        receptionistsList.add(new Receptionist(1, "Quynh bup be",21,"ha giang","anh Canh","1.jpg"));
+        receptionistsList.add(new Receptionist(2, "Lan kave",31,"ha tay","lam tho may","1.jpg"));
+        receptionistsList.add(new Receptionist(3, "My soi",24,"ha noi","anh Canh","1.jpg"));
+
+    }
 
     @Override
     public List findAll() {
-        return receptionistList;
+        return receptionistsList;
     }
 
     @Override
     public void addReceptionist(Receptionist receptionist) {
-        receptionistList.add(receptionist);
+        receptionistsList.add(receptionist);
     }
 
     @Override
     public Receptionist findById(int id) {
-        for (int i = 0; i < receptionistList.size(); i++) {
-            if (receptionistList.get(i).getId() == id) {
-                return receptionistList.get(i);
+        for (int i = 0; i < receptionistsList.size(); i++) {
+            if (receptionistsList.get(i).getId() == id) {
+                return receptionistsList.get(i);
             }
         }
         return null;
@@ -31,20 +39,20 @@ public class ReceptionistRepository implements GeneralRepository<Receptionist> {
     @Override
     public void updateReceptionist(int id, Receptionist receptionist) {
         int index= -1;
-        for (int i =0; i< receptionistList.size();i++){
-            if(receptionistList.get(i).getId()==id){
+        for (int i =0; i< receptionistsList.size();i++){
+            if(receptionistsList.get(i).getId()==id){
                 index = i;
                 break;
             }
         }
-        receptionistList.set(index,receptionist);
+        receptionistsList.set(index,receptionist);
     }
 
     @Override
     public void removeReceptionist(int id) {
-        for (int i =0;i<receptionistList.size();i++){
-            if (receptionistList.get(i).getId() == id){
-                receptionistList.remove(i);
+        for (int i =0;i<receptionistsList.size();i++){
+            if (receptionistsList.get(i).getId() == id){
+                receptionistsList.remove(i);
                 return;
             }
         }
@@ -53,7 +61,7 @@ public class ReceptionistRepository implements GeneralRepository<Receptionist> {
     @Override
     public List<Receptionist> findByName(String name) {
         List<Receptionist> receptionists = new ArrayList<>();
-        for (Receptionist receptionist : receptionistList) {
+        for (Receptionist receptionist : receptionistsList) {
             if (receptionist.getName().contains(name)) {
                 receptionists.add(receptionist);
             }

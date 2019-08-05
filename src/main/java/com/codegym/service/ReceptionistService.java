@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.util.List;
 
 public class ReceptionistService implements GeneralService<Receptionist> {
+
     @Autowired
     ReceptionistRepository receptionistRepository;
 

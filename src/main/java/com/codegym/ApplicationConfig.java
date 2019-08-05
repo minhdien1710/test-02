@@ -25,7 +25,7 @@ import java.io.IOException;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan("com.controller")
+@ComponentScan("com.codegym")
 @PropertySource("classpath:global_config_app.properties")
 public class ApplicationConfig extends WebMvcConfigurerAdapter implements ApplicationContextAware {
 
