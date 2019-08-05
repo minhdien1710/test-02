@@ -12,7 +12,7 @@
 <th:block th:if="${message}">
     <p th:text="${message}"></p>
 </th:block>
-<form th:action="@{/edit-receptionist}" th:object="${receptionistForm}" method="post" enctype="multipart/form-data">
+<form th:action="@{/receptionist-update}" th:object="${receptionistForm}" method="post" enctype="multipart/form-data">
     <input th:type="hidden" th:field="*{id}">
     <table>
         <tr>
